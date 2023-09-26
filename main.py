@@ -1,17 +1,10 @@
 import argparse
 
-from image_utils import create_image, store_image
-from utils import process_colors
-
-
-class ValidateColorsLength(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        num_values = len(values)
-        if not (2 <= num_values <= 4):
-            raise argparse.ArgumentTypeError(
-                f"Number of colors must range between 2 and 4: {num_values} given."
+from utils.image import create_image, store_image
+from utils.colors import process_colors, ValidateColors
+from utils.constants import (
+    DEFAULT_COLORS, DEFAULT_DISTRIBUTION, DISTRIBUTION_CHOICES
             )
-        setattr(namespace, self.dest, values)
 
 
 def main():
@@ -25,13 +18,13 @@ def main():
     parser.add_argument(
         "--colors",
         nargs="*",
-        action=ValidateColorsLength,
-        default=['#000000', '#2FF924', '#DDDBF1'],
+        action=ValidateColors,
+        default=DEFAULT_COLORS,
     )
     parser.add_argument(
         "--distribution",
-        choices=["top-bottom", "bottom-top", "right-left", "left-right"],
-        default="top-bottom",
+        choices=DISTRIBUTION_CHOICES,
+        default=DEFAULT_DISTRIBUTION,
     )
 
     args = parser.parse_args()
