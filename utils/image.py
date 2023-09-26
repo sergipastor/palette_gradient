@@ -2,8 +2,7 @@ import numpy as np
 from PIL import ImageColor
 import matplotlib.pyplot as plt
 
-ARRWIDTH = 1920
-ARRHEIGHT = 1080
+from utils.constants import WIDTH, HEIGHT
 
 
 def create_channel_image(values, width, height):
@@ -24,7 +23,12 @@ def create_image(hex_colors: list):
         for colour in hex_colors
     ]
     colors_by_channel = zip(*rgb_colors)
-    channel_images = list(map(lambda x: create_channel_image(x, ARRWIDTH, ARRHEIGHT), colors_by_channel))
+    channel_images = list(
+        map(
+            lambda x: create_channel_image(x, WIDTH, HEIGHT),
+            colors_by_channel
+        )
+    )
     img = np.concatenate(channel_images, axis=2)
     return img
 
