@@ -1,6 +1,7 @@
 import argparse
 
 from image_utils import create_image, store_image
+from utils import process_colors
 
 
 class ValidateColorsLength(argparse.Action):
@@ -25,7 +26,7 @@ def main():
         "--colors",
         nargs="*",
         action=ValidateColorsLength,
-        default=['#000000', '#000000', '#2FF924', '#DDDBF1'],
+        default=['#000000', '#2FF924', '#DDDBF1'],
     )
     parser.add_argument(
         "--distribution",
@@ -34,7 +35,8 @@ def main():
     )
 
     args = parser.parse_args()
-    img = create_image(args.colors)
+    colors = process_colors(args.colors, args.distribution)
+    img = create_image(colors)
     store_image(img, "uhaha.png")
 
 
