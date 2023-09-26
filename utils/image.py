@@ -10,8 +10,8 @@ def create_channel_image(values, width, height):
     (upperleft, upperright, lowerleft, lowerright) = values
 
     array = np.linspace(
-        np.linspace(lowerleft, lowerright, width), 
         np.linspace(upperleft, upperright, width),
+        np.linspace(lowerleft, lowerright, width), 
         height,
         dtype=int
     )
