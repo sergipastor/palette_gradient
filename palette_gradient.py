@@ -11,12 +11,14 @@ from utils.constants import (
 def main():
     parser = argparse.ArgumentParser(description="")
     parser.add_argument(
+        "-o",
         "--output_filename",
         type=str,
         required=True,
-        help="Path to the output filename."
+        help="Specify the output filename."
     )
     parser.add_argument(
+        "-c",
         "--colors",
         nargs="*",
         action=ValidateColors,
@@ -24,6 +26,7 @@ def main():
         help="Hexadecimal values of the colors to be used in the resulting image."
     )
     parser.add_argument(
+        "-d",
         "--distribution",
         choices=DISTRIBUTION_CHOICES,
         default=DEFAULT_DISTRIBUTION,
