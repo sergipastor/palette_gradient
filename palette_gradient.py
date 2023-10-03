@@ -3,7 +3,8 @@ import argparse
 from utils.image import create_image, store_image
 from utils.colors import process_colors, ValidateColors
 from utils.constants import (
-    DEFAULT_COLORS, DEFAULT_DISTRIBUTION, DISTRIBUTION_CHOICES
+    DEFAULT_COLORS, DEFAULT_DISTRIBUTION,
+    DISTRIBUTION_CHOICES, DISTRIBUTION_HELP, 
 )
 
 
@@ -26,13 +27,7 @@ def main():
         "--distribution",
         choices=DISTRIBUTION_CHOICES,
         default=DEFAULT_DISTRIBUTION,
-        help="""
-            Distribution of the colors provided in the resulting image.
-            top-bottom: first colors at the top, last colors at the bottom.
-            bottom-top: first colors at the bottom, last colors at the top.
-            right-left: first colors on the right side, last colors on the left side.
-            left-right: first colors on the left side, last colors on the right side.
-        """
+        help=DISTRIBUTION_HELP,
     )
 
     args = parser.parse_args()
