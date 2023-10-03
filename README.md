@@ -4,7 +4,7 @@ palette gradient generates a gradient image using a color palette consisting of 
 
 | Two colors    | Three colors   | Four colours  |
 |     :---:     |      :---:     |     :---:     |
-| ![uhaha](examples/example1.png)   | ![uhaha](examples/example2.png)     | ![uhaha](examples/example3.png)    |
+| ![two colors](examples/example1.png)   | ![three colors](examples/example2.png)     | ![four colors](examples/example3.png)    |
 
 
 ## Requirements
@@ -13,7 +13,7 @@ To run this program, you need the following:
 
 - **Python 3.x**
 
-- **Python Dependencies:** You can easily install the required Python libraries using `pip` and the provided `requirements.txt` file.
+- **Python Dependencies:** You can easily install the required Python libraries using `pip3` and the provided `requirements.txt` file.
 
    ```shell
    pip3 install -r requirements.txt
