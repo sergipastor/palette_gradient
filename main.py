@@ -26,6 +26,13 @@ def main():
         "--distribution",
         choices=DISTRIBUTION_CHOICES,
         default=DEFAULT_DISTRIBUTION,
+        help="""
+            Distribution of the colors provided in the resulting image.
+            top-bottom: first colors at the top, last colors at the bottom.
+            bottom-top: first colors at the bottom, last colors at the top.
+            right-left: first colors on the right side, last colors on the left side.
+            left-right: first colors on the left side, last colors on the right side.
+        """
     )
 
     args = parser.parse_args()
